@@ -84,7 +84,7 @@ footer img{width:120px;height:auto;display:block;margin:0 auto 10px}
 <tr><td>OAuth client file (client ID and client secret) from the owner’s own Google Cloud project</td><td>Needed for Google OAuth sign-in</td><td>Kept only in the application’s local folder on the owner’s computer. Never published or included in any web page.</td></tr>
 <tr><td>Game state and settings (for example speed, theme, colour, pick interval, “live commands” on/off, stream mode and a pasted livestream link)</td><td>To run the game and remember the owner’s settings</td><td>Game state is held in memory while the game runs. Settings are saved in the owner’s own browser storage on the owner’s computer. They contain no viewer information and no Google tokens.</td></tr>
 </table></div>
-<p>The application does not create a database of viewers and does not keep a history or log of chat messages. When the program is closed, the in-memory information above (chat messages, pending commands, stream details and game state) is gone. What stays on the owner’s computer is the refresh token file, the OAuth client file and the saved browser settings, until the owner deletes them.</p>
+<p>Viewer chat data is not stored in any permanent database. The application does not create a database of viewers and does not keep a history or log of chat messages; valid commands are processed in memory only during the running session. When the program is closed, the in-memory information above (chat messages, pending commands, stream details and game state) is gone. What stays on the owner’s computer is the refresh token file, the OAuth client file and the saved browser settings, until the owner deletes them.</p>
 <p>The viewer’s display name and the command are shown on screen when a command is picked, so they are visible in the livestream video. Display names are already public in YouTube live chat.</p>
 </section>
 
@@ -125,7 +125,7 @@ footer img{width:120px;height:auto;display:block;margin:0 auto 10px}
 
 <section>
 <h2>10. Contact</h2>
-<p>For privacy questions, contact the owner of Snake Madness Live through the YouTube channel <a href="https://www.youtube.com/@PoogooGames" target="_blank" rel="noopener noreferrer">@PoogooGames</a>, or by email at: <strong>poogoogames@zohomail.in</strong> <!-- TODO: replace with your real contact email before publishing --></p>
+<p>For privacy questions, contact the owner of Snake Madness Live through the YouTube channel <a href="https://www.youtube.com/@PoogooGames" target="_blank" rel="noopener noreferrer">@PoogooGames</a>, or by email at: <a href="mailto:poogoogames@zohomail.in"><strong>poogoogames@zohomail.in</strong></a></p>
 </section>
 </main>
 <footer><div class="wrap"><img src="logo.png" alt="Poogoo Games"><p>Snake Madness Live is an independent personal project by Poogoo Games and is not affiliated with, endorsed by, or sponsored by YouTube or Google. YouTube is a trademark of Google LLC.</p><p><a href="index.html">Home</a> · <a href="privacy-policy.html">Privacy Policy</a> · <a href="https://www.youtube.com/@PoogooGames" target="_blank" rel="noopener noreferrer">YouTube channel</a></p></div></footer>
