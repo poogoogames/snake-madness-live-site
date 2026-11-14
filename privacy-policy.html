@@ -1,1 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy – Snake Madness Live</title>
+<meta name="description" content="Privacy Policy for Snake Madness Live, a personal YouTube livestream game that reads live chat commands.">
+<style>
+:root{--bg:#f6f8fb;--card:#fff;--ink:#0f172a;--mut:#475569;--ac:#15803d;--ln:#e2e8f0}
+@media(prefers-color-scheme:dark){:root{--bg:#0b1220;--card:#111a2e;--ink:#e8eefc;--mut:#a5b4cf;--ac:#4ade80;--ln:#25324d}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+header,main,footer{max-width:860px;margin:0 auto;padding:0 20px}
+header{padding-top:28px;padding-bottom:8px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;font-size:1.05rem}nav a{margin-left:16px;font-weight:600}
+a{color:var(--ac)}h1{font-size:clamp(1.8rem,5vw,2.6rem);line-height:1.15;margin:.6em 0 .3em}
+h2{font-size:1.3rem;margin:0 0 .5em}.lead{font-size:1.1rem;color:var(--mut)}
+section,.card{background:var(--card);border:1px solid var(--ln);border-radius:14px;padding:20px 22px;margin:18px 0}
+ul,ol{padding-left:22px}li{margin:.35em 0}
+.btn{display:inline-block;background:var(--ac);color:#fff;text-decoration:none;font-weight:700;padding:10px 18px;border-radius:10px}
+@media(prefers-color-scheme:dark){.btn{color:#04210f}}
+.note{border-left:5px solid var(--ac);padding-left:14px;color:var(--mut)}
+footer{padding-top:10px;padding-bottom:40px;color:var(--mut);font-size:.92rem}
+table{width:100%;border-collapse:collapse;font-size:.95rem}td,th{text-align:left;padding:8px 10px;border-bottom:1px solid var(--ln);vertical-align:top}
+code{background:var(--ln);padding:1px 6px;border-radius:5px;font-size:.92em;word-break:break-word}
+</style>
+</head>
+<body>
+<header><div class="brand">🐍 Snake Madness Live</div><nav><a href="index.html">Home</a><a href="privacy-policy.html">Privacy Policy</a></nav></header>
+<main>
+<h1>Privacy Policy</h1>
+<p class="lead">Snake Madness Live &middot; Last updated: November 14, 2026</p>
 
+<section>
+<h2>1. About the application</h2>
+<p>Snake Madness Live (“the application”) is a personal, interactive livestream game for the YouTube channel @PoogooGames. During a livestream, viewers write commands in the YouTube live chat and the application converts them into actions in a Snake game. The application is used by its owner for the owner’s own livestreams. It runs locally on the owner’s computer and is not a public, hosted web application.</p>
+</section>
+
+<section>
+<h2>2. Use of YouTube and Google APIs</h2>
+<p>The application uses YouTube API Services (YouTube Data API v3), mainly to read the live chat of the owner’s livestream. It uses Google OAuth 2.0 to obtain authorization. By using YouTube features, the channel owner is bound by the <a href="https://www.youtube.com/t/terms" target="_blank" rel="noopener noreferrer">YouTube Terms of Service</a>, and Google’s handling of data is described in the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a>.</p>
+<p>The application’s use of information received from Google APIs adheres to the <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener noreferrer">Google API Services User Data Policy</a>, including its Limited Use requirements.</p>
+</section>
+
+<section>
+<h2>3. Authorization (who signs in and what is requested)</h2>
+<ul>
+<li>Only the game owner / stream owner signs in with Google. Viewers never sign in to the application and give it no access to their accounts.</li>
+<li>The application requests one read-only permission: <code>https://www.googleapis.com/auth/youtube.readonly</code> (“View your YouTube account”).</li>
+<li>The application uses this access to: confirm that the signed-in account owns the channel @PoogooGames, find the owner’s active livestream, and read that livestream’s live chat messages.</li>
+<li>The application does <strong>not</strong> post, delete or moderate chat messages and does not change the channel, videos or settings.</li>
+</ul>
+</section>
+
+<section>
+<h2>4. Information the application handles</h2>
+<table>
+<tr><th>Information</th><th>Why</th><th>Where / how long</th></tr>
+<tr><td>Live chat messages received from the YouTube API (message ID, text, display name of the author, time)</td><td>To find the fixed game commands in chat</td><td>Held in the running program’s memory only. Messages that are not valid commands are discarded immediately and are not stored. Message IDs are kept in memory only to avoid using the same message twice.</td></tr>
+<tr><td>Valid command messages (command, the viewer’s public display name, up to 300 characters of the message)</td><td>To pick one command, show who sent it and the command on screen, and run the game action</td><td>Memory only. A pending command is removed when it is picked, when it expires after 15 minutes, or when the livestream ends or the owner disconnects.</td></tr>
+<tr><td>Owner’s channel and stream details (channel ID and title, livestream ID, title and live chat ID)</td><td>To verify the owner’s channel and connect to the correct livestream and show the connection status</td><td>Memory only while the program runs.</td></tr>
+<tr><td>Google OAuth refresh token (with a save time stamp)</td><td>To keep the owner authorized so the owner does not have to sign in again for every session</td><td>Saved in a file on the owner’s own computer, in the application’s local folder. It is never sent to the web page or to this website. Signing out in the application deletes it. If Google rejects it, it is deleted.</td></tr>
+<tr><td>OAuth client file (client ID and client secret) from the owner’s own Google Cloud project</td><td>Needed for Google OAuth sign-in</td><td>Kept only in the application’s local folder on the owner’s computer. Never published or included in any web page.</td></tr>
+<tr><td>Game state and settings (for example speed, theme, colour, pick interval, “live commands” on/off, stream mode and a pasted livestream link)</td><td>To run the game and remember the owner’s settings</td><td>Game state is held in memory while the game runs. Settings are saved in the owner’s own browser storage on the owner’s computer. They contain no viewer information and no Google tokens.</td></tr>
+</table>
+<p>The application does not create a database of viewers and does not keep a history or log of chat messages. When the program is closed, the in-memory information above (chat messages, pending commands, stream details and game state) is gone. What stays on the owner’s computer is the refresh token file, the OAuth client file and the saved browser settings, until the owner deletes them.</p>
+<p>The viewer’s display name and the command are shown on screen when a command is picked, so they are visible in the livestream video. Display names are already public in YouTube live chat.</p>
+</section>
+
+<section>
+<h2>5. What we do not do</h2>
+<ul>
+<li>We do not collect viewers’ personal information beyond the command message and public display name described above, and we do not store it beyond temporary use.</li>
+<li>We do not sell, rent, or share viewer data, and we do not use it for advertising or profiling.</li>
+<li>We do not send data from the application to any other server or third party. Its only network communication is with Google and YouTube for sign-in and for reading the live chat, plus the local connection between the program and the owner’s browser.</li>
+<li>We do not put any API key, client secret, OAuth token or other credential in this website or its HTML.</li>
+</ul>
+</section>
+
+<section>
+<h2>6. Local processing and security</h2>
+<p>The main processing happens on the game owner’s computer. The local program accepts connections only from the same computer and protects its local interface with a random token generated each time it starts. The owner is responsible for keeping the computer, the OAuth client file and the token file private.</p>
+</section>
+
+<section>
+<h2>7. Revoking access and deleting data</h2>
+<ul>
+<li>The owner can sign out inside the application, which deletes the saved token file.</li>
+<li>The owner can also revoke the application’s access at any time in the Google Account permissions page: <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener noreferrer">myaccount.google.com/permissions</a>.</li>
+<li>Closing the program clears all in-memory data. The owner can delete the application’s local folder and the browser’s saved site data to remove everything else.</li>
+<li>A viewer who does not want a chat message used can simply not post a command, or delete their own message in YouTube. Viewers can contact us about privacy concerns using the contact below.</li>
+</ul>
+</section>
+
+<section>
+<h2>8. Children</h2>
+<p>The application is not directed at children and does not knowingly collect personal information from children. It only processes the public live chat messages of the channel’s livestream, as described above.</p>
+</section>
+
+<section>
+<h2>9. Changes to this policy</h2>
+<p>If the application’s use of data changes, this policy will be updated and the “Last updated” date will change.</p>
+</section>
+
+<section>
+<h2>10. Contact</h2>
+<p>For privacy questions, contact the owner of Snake Madness Live through the YouTube channel <a href="https://www.youtube.com/@PoogooGames" target="_blank" rel="noopener noreferrer">@PoogooGames</a>, or by email at: <strong>your-email@example.com</strong> <!-- TODO: replace with your real contact email before publishing --></p>
+</section>
+</main>
+<footer><p>Snake Madness Live is an independent personal project and is not affiliated with, endorsed by, or sponsored by YouTube or Google. YouTube is a trademark of Google LLC.</p><p><a href="index.html">Home</a> · <a href="privacy-policy.html">Privacy Policy</a></p></footer>
+</body>
+</html>
