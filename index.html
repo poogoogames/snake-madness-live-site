@@ -1,1 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Snake Madness Live</title>
+<meta name="description" content="Snake Madness Live is a personal interactive YouTube livestream game where viewers’ live chat commands trigger actions in a Snake game.">
+<style>
+:root{--bg:#f6f8fb;--card:#fff;--ink:#0f172a;--mut:#475569;--ac:#15803d;--ln:#e2e8f0}
+@media(prefers-color-scheme:dark){:root{--bg:#0b1220;--card:#111a2e;--ink:#e8eefc;--mut:#a5b4cf;--ac:#4ade80;--ln:#25324d}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+header,main,footer{max-width:860px;margin:0 auto;padding:0 20px}
+header{padding-top:28px;padding-bottom:8px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:800;font-size:1.05rem}nav a{margin-left:16px;font-weight:600}
+a{color:var(--ac)}h1{font-size:clamp(1.8rem,5vw,2.6rem);line-height:1.15;margin:.6em 0 .3em}
+h2{font-size:1.3rem;margin:0 0 .5em}.lead{font-size:1.1rem;color:var(--mut)}
+section,.card{background:var(--card);border:1px solid var(--ln);border-radius:14px;padding:20px 22px;margin:18px 0}
+ul,ol{padding-left:22px}li{margin:.35em 0}
+.btn{display:inline-block;background:var(--ac);color:#fff;text-decoration:none;font-weight:700;padding:10px 18px;border-radius:10px}
+@media(prefers-color-scheme:dark){.btn{color:#04210f}}
+.note{border-left:5px solid var(--ac);padding-left:14px;color:var(--mut)}
+footer{padding-top:10px;padding-bottom:40px;color:var(--mut);font-size:.92rem}
+table{width:100%;border-collapse:collapse;font-size:.95rem}td,th{text-align:left;padding:8px 10px;border-bottom:1px solid var(--ln);vertical-align:top}
+code{background:var(--ln);padding:1px 6px;border-radius:5px;font-size:.92em;word-break:break-word}
+</style>
+</head>
+<body>
+<header><div class="brand">🐍 Snake Madness Live</div><nav><a href="index.html">Home</a><a href="privacy-policy.html">Privacy Policy</a></nav></header>
+<main>
+<h1>Snake Madness Live</h1>
+<p class="lead">A personal, interactive livestream game for the YouTube channel <a href="https://www.youtube.com/@PoogooGames" target="_blank" rel="noopener noreferrer">@PoogooGames</a>. Viewers type commands in the YouTube live chat, and the game turns them into actions in a Snake game.</p>
+<p><a class="btn" href="privacy-policy.html">Read the Privacy Policy</a></p>
 
+<section>
+<h2>What it is</h2>
+<p>Snake Madness Live is a Snake game that is shown on a YouTube livestream. During a livestream, viewers write one of a fixed list of commands in the live chat (for example <code>/Bomb</code> or <code>/Freeze</code>). Reading the chat by hand while streaming is not practical, so the application reads the live chat automatically and triggers the matching game action.</p>
+</section>
+
+<section>
+<h2>How it works with YouTube</h2>
+<ol>
+<li>The channel owner signs in with their Google account using Google OAuth and grants one read-only permission (<code>youtube.readonly</code>).</li>
+<li>When the owner is live, the application uses the YouTube Data API v3 to find the active livestream and read its live chat messages.</li>
+<li>Only messages that contain one of 12 fixed commands are kept as pending commands. All other chat text is ignored.</li>
+<li>At an interval set by the owner, the game picks one pending command at random, shows the viewer’s display name and the command on screen, and runs the matching effect in the game.</li>
+<li>The updated game is visible to everyone in the livestream video.</li>
+</ol>
+<p class="note">The application only reads. It does not post, delete or moderate chat messages, and it does not change anything on the YouTube channel.</p>
+</section>
+
+<section>
+<h2>Where it runs</h2>
+<p>Snake Madness Live runs on the game owner’s own private computer, as a small local program that serves the game to the owner’s browser at a local address. It is <strong>not</strong> hosted as a public web application, it has no public sign-in and no user accounts, and it is not offered as a service to other people. This website is an information page only and does not run the game.</p>
+</section>
+
+<section>
+<h2>Commands the game understands</h2>
+<p><code>/ChangeSnakeColor</code> <code>/ChangeTheme</code> <code>/SpawnApples</code> <code>/FireRun</code> <code>/SpawnGoldenApple</code> <code>/Fart</code> <code>/AppleRain</code> <code>/RainbowMode</code> <code>/Bomb</code> <code>/Surprise</code> <code>/Freeze</code> <code>/Kill</code></p>
+</section>
+
+<section>
+<h2>YouTube API Services</h2>
+<p>This application uses YouTube API Services. By using YouTube features through this application, the channel owner is bound by the <a href="https://www.youtube.com/t/terms" target="_blank" rel="noopener noreferrer">YouTube Terms of Service</a>. Google’s handling of data is described in the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a>.</p>
+<p>See our <a href="privacy-policy.html">Privacy Policy</a> for what the application does with data.</p>
+</section>
+</main>
+<footer><p>Snake Madness Live is an independent personal project and is not affiliated with, endorsed by, or sponsored by YouTube or Google. YouTube is a trademark of Google LLC.</p><p><a href="index.html">Home</a> · <a href="privacy-policy.html">Privacy Policy</a></p></footer>
+</body>
+</html>
